@@ -3,6 +3,8 @@ Backend for Noxguard (https://noxguard.id)
 
 DH Token = dckr_pat___rtuP2b3MqZnB2NKrUCSK5IGfs
 
+DEV = docker-compose run --rm app sh -c 'flake8'
+
 ```
 ################################################################################
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
