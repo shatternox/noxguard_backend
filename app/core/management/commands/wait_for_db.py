@@ -1,26 +1,17 @@
 """
-Test custom Django managemnet commands.
+Django command to wait for the database to be available.
 """
-from unittest.mock import patch
+import time
+from psycopg2 import OperationalError as Psycopg20pError
 
-from psycopg2 import OperationalError as Psycopg2Error
-
-from django.core.management import call_command
 from django.db.utils import OperationalError
-from django.test import SimpleTestCase
+from django.core.management.base import BaseCommand
 
+class Command(BaseCommand):
+    """Django command to wait for database."""
 
-# ini mockingnya
-@patch('core.management.commands.wait_for_db.Command.check')
-class CommandTests(SimpleTestCase):
-    """Test commands."""
+    def handle(self, *args, **options):
+        pass
 
-    def test_wait_for_db_ready(self, patched_check):
-        """Test waitin for database if database ready."""
-        patched_check.return_value = True
-
-        call_command('wait_for_db')
-
-        patched_check.assert_called_once_with(database=['default'])
 
         
