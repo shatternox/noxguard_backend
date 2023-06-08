@@ -17,11 +17,11 @@ services:
       - DB_NAME=devdb
       - DB_USER=devuser
       - DB_PASS=changeme
-    depends_on: # nunggu service db nyala dulu, baru nyalain service app
+    depends_on: # nunggu service db nyala dulu, baru nyalain service app, tapi ntar ada issue race-condition
       - db
   
   db:
-    image: postres:13.3-alpine
+    image: postgres:13.3-alpine
     volumes:
       - dev-db-data:/var/lib/postgresql/data
     environment:
@@ -29,6 +29,6 @@ services:
       - POSTGRES_USER=devuser
       - POSTGRES_PASSWORD=changeme
 
-  volumes:
-    dev-db-data:
+volumes:
+  dev-db-data:
 
